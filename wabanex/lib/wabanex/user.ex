@@ -13,7 +13,7 @@ defmodule Wabanex.User do
     field :name, :string
     field :password, :string
 
-    has_one :training, Training
+    has_many :trainings, Training
 
     timestamps()
   end
@@ -24,7 +24,7 @@ defmodule Wabanex.User do
     |> validate_required(@fields)
     |> validate_length(:password, min: 6)
     |> validate_length(:name, min: 2)
-    |> validate_format(:email, ~r/@/)
+    |> validate_format(:email, ~r/^[\w.!#$%&’*+\-\/=?\^`{|}~]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i)
     |> unique_constraint([:email])
   end
 end

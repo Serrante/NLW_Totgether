@@ -9,7 +9,6 @@ defmodule WabanexWeb.Schema.Types.Root do
   alias Resolvers.User, as: UserResolver
   alias Resolvers.Training, as: TrainingResolver
 
-
   import_types Types.Custom.UUID4
   import_types Types.User
   import_types Types.Training
